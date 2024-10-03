@@ -1,0 +1,99 @@
+import javax.swing.JOptionPane;
+
+class Pessoa {
+    private String nome;
+    private int idade;
+    
+    public Pessoa(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+    
+    public String getNome() {
+        return nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+    
+    public void exibirInfo() {
+        System.out.println("Nome: " + nome);
+        System.out.println("Idade: " + idade);
+    }
+}
+
+class Aluno extends Pessoa {
+    private String matricula;
+    
+    public Aluno(String nome, int idade, String matricula) {
+        super(nome, idade);
+        this.matricula = matricula;
+    }
+    
+    @Override
+    public void exibirInfo() {
+        super.exibirInfo();
+        System.out.println("Matrícula: " + matricula);
+    }
+    
+    public String getMatricula() {
+        return matricula;
+    }
+}
+
+class Professor extends Pessoa {
+    private double salario;
+    
+    public Professor(String nome, int idade, String matricula, double salario) {
+        super(nome, idade);
+        this.salario = salario;
+    }
+    
+    @Override
+    public void exibirInfo() {
+        super.exibirInfo();
+        System.out.println("Salário: " + salario);
+    }
+    
+    public double getSalario() {
+        return salario;
+    }
+}
+
+public class Prova {
+    public static void main(String[] args) {
+        
+        String nomePessoa = JOptionPane.showInputDialog("Digite o nome da pessoa:");
+        int idadePessoa = Integer.parseInt(JOptionPane.showInputDialog("Digite a idade da pessoa:"));
+        
+        Pessoa pessoa = new Pessoa(nomePessoa, idadePessoa);
+        
+        JOptionPane.showMessageDialog(null, "Informações da Pessoa:\n" +
+                "Nome: " + pessoa.getNome() + "\n" +
+                "Idade: " + pessoa.getIdade());
+        
+        String nomeAluno = JOptionPane.showInputDialog("Digite o nome do aluno:");
+        int idadeAluno = Integer.parseInt(JOptionPane.showInputDialog("Digite a idade do aluno:"));
+        String matriculaAluno = JOptionPane.showInputDialog("Digite a matrícula do aluno:");
+        
+        Aluno aluno = new Aluno(nomeAluno, idadeAluno, matriculaAluno);
+        
+        JOptionPane.showMessageDialog(null, "Informações do Aluno:\n" +
+                "Nome: " + aluno.getNome() + "\n" +
+                "Idade: " + aluno.getIdade() + "\n" +
+                "Matrícula: " + aluno.getMatricula());
+        
+        String nomeProfessor = JOptionPane.showInputDialog("Digite o nome do professor:");
+        int idadeProfessor = Integer.parseInt(JOptionPane.showInputDialog("Digite a idade do professor:"));
+        double salarioProfessor = Double.parseDouble(JOptionPane.showInputDialog("Digite o salário do professor:"));
+        
+        Professor professor = new Professor(nomeProfessor, idadeProfessor, matriculaProfessor, salarioProfessor);
+        
+        JOptionPane.showMessageDialog(null, "Informações do Professor:\n" +
+                "Nome: " + professor.getNome() + "\n" +
+                "Idade: " + professor.getIdade() + "\n" +
+                "\n" +
+                "Salário: " + professor.getSalario());
+    }
+}
