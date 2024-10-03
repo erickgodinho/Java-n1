@@ -1,0 +1,91 @@
+import javax.swing.*;
+
+class Pessoa{
+    private String nome;
+    private int idade;
+
+    public Pessoa(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+    void exibirInfo(){
+        System.out.println("Nome: " + nome);
+        System.out.println("Idade: " + idade);
+    }
+}
+
+
+class Aluno extends Pessoa{
+    private String matricula;
+
+    public Aluno(String nome, int idade, String matricula) {
+        super(nome, idade);
+        this.matricula = matricula;
+    }
+    @Override
+    public void exibirInfo(){
+        super.exibirInfo();
+        System.out.println("Matricula: " + matricula);
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+}
+
+class Professor extends Pessoa{
+    private Double salario;
+
+    public Professor(String nome, int idade, Double salario) {
+        super(nome, idade);
+        this.salario = salario;
+    }
+    @Override
+    public void exibirInfo(){
+        super.exibirInfo();
+        System.out.println("Salário: " + salario);
+    }
+
+    public Double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(Double salario) {
+        this.salario = salario;
+    }
+}
+
+public class Prova {
+    public static void main(String[] args) {
+
+        Pessoa pessoa = new Pessoa("jorge", 18);
+        pessoa.exibirInfo();
+
+        Aluno aluno = new Aluno("pedrin", 20, "2sa34ds");
+        aluno.exibirInfo();
+
+        Professor professor = new Professor("zerefos", 24, 10.000);
+        professor.exibirInfo();
+
+    }
+}
